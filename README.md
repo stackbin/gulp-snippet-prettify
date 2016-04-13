@@ -2,7 +2,7 @@
 
 Gulp plugin to rename code snippet function variables to make them look pretty.
 
-NOTE: This probably only works with uglifyjs - untested with anything else.
+NOTE: This plugin will only rename variables in the first function definition it finds.
 
 If you are creating snippets or widgets for websites, and you have some code like this:
 
@@ -10,10 +10,10 @@ If you are creating snippets or widgets for websites, and you have some code lik
 !function(u,g,l,y,w,t,f) {
 ```
 
-Use *gulp-snippet-prettify* to make it look like this:
+You can use *gulp-snippet-prettify* to make it look something like this (a la google analytics)
 
 ```
-!function(very,p,r,e,t,t,y) {
+!function(i,s,o,g,r,a,m) {
 ```
 
 We use this at [Stackbin](https://stkbn.com) to make our snippets look pretty :)
@@ -39,7 +39,7 @@ gulp.task('snippet', function () {
     gulp.src('snippet.js')
         .pipe(uglify())
         .pipe(snippetPrettify({
-            replacements: ['p', 'r', 'e', 'tt', 'y']
+            replacements: ['i', 's', 'o', 'g', 'r', 'a', 'm']
         }))
         .pipe(gulp.dest('dist'));
 });
