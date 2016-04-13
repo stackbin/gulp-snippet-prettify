@@ -14,6 +14,7 @@
   "bugs": {
     "url": "https://github.com/stackbin/gulp-snippet-prettify/issues"
   },
+  "keywords": ["gulp", "plugin", "uglify", "pretty", "variable", "replace", "refactor", "rename"],
   "license": "MIT",
   "dependencies": {
     "esprima": "^2.7.2",
