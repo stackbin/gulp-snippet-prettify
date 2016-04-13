@@ -1,0 +1,24 @@
+{
+  "name": "gulp-snippet-prettify",
+  "version": "0.1.3",
+  "description": "Gulp plugin to rename code snippet function variables to make them look pretty",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "mocha test/"
+  },
+  "author": "Max Holman <max@holmn.com>",
+  "license": "MIT",
+  "dependencies": {
+    "escope": "^3.6.0",
+    "esrefactor": "^0.1.0",
+    "through2": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "jscs": "^2.11.0",
+    "mocha": "^2.4.5",
+    "stream-assert": "^2.0.3"
+  }
+}

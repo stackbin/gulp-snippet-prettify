@@ -1,0 +1,31 @@
+# Logs
+logs
+*.log
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Dependency directory
+node_modules
+
+# JetBrains
+*.iml
+atlassian-ide-plugin.xml
+.idea/*
+
+# VIM
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+*.un~
+Session.vim
+*~
+*.swp
+
+# Temp directory
+tmp
+
+# Distributed files
+dist
+
+# Bower vendor
+static/vendor
