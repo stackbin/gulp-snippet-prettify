@@ -33,31 +33,18 @@ gulpfile.js:
 ```javascript
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
+var snippetPrettify = require('gulp-snippet-prettify');
 
-var snippet_options = {
-    replacements: ['p', 'r', 'e', 'tt', 'y']
-};
-
-gulp.task('buildjs-snippet', function () {
+gulp.task('snippet', function () {
     gulp.src('snippet.js')
-        .pipe(uglify({
-            mangle: true,
-            output: {
-                max_line_len: 80,
-                indent_level: 0,
-                ascii_only: true
-            },
-            compress: {
-                unsafe: true
-            }
+        .pipe(uglify())
+        .pipe(snippetPrettify({
+            replacements: ['p', 'r', 'e', 'tt', 'y']
         }))
-        .pipe(snippetPrettify(snippet_options))
         .pipe(gulp.dest('dist'));
 });
 ```
 
 ## License
 
-MIT
-
-See LICENSE file
+MIT - See LICENSE file
