@@ -12,7 +12,6 @@
  all copies or substantial portions of the Software.
 */
 
-/* jshint node:true */
 'use strict';
 
 var through = require('through2');
