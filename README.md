@@ -10,32 +10,31 @@ If you are creating snippets or widgets for websites, and you have some code lik
 !function(u,g,l,y,w,t,f) {
 ```
 
-Use gulp-snippet-prettify to make it look like this:
+Use *gulp-snippet-prettify* to make it look like this:
 
 ```
-!function(p,r,e,tt,y,_) {
+!function(very,p,r,e,t,t,y) {
 ```
 
-We use this at [Stackbin](https://stkbn.com) to make our snippets look pretty.
+We use this at [Stackbin](https://stkbn.com) to make our snippets look pretty :)
 
 ## Installation
 
 ```
-> npm install gulp-snippet-prettify --save
+npm install gulp-snippet-prettify --save
 ```
 
 ## Usage
 
-Example below of using uglify to mangle/compress some code, then rename the variables to produce:
+Example below of using uglify to mangle/compress some code, then rename the variables.
 
 gulpfile.js:
 
-```
-
+```javascript
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
 
-var snippet-options = {
+var snippet_options = {
     replacements: ['p', 'r', 'e', 'tt', 'y']
 };
 
@@ -59,8 +58,4 @@ gulp.task('buildjs-snippet', function () {
 
 ## License
 
-MIT
-
 See LICENSE file
-
-
