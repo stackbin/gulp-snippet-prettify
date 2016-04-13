@@ -58,4 +58,6 @@ gulp.task('buildjs-snippet', function () {
 
 ## License
 
+MIT
+
 See LICENSE file
