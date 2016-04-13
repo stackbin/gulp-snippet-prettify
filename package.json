@@ -1,6 +1,6 @@
 {
   "name": "gulp-snippet-prettify",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Gulp plugin to rename code snippet function variables to make them look pretty",
   "main": "src/index.js",
   "scripts": {
