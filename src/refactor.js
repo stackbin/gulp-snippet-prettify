@@ -18,6 +18,8 @@ var refactor = require('esrefactor');
 var esprima = require('esprima');
 var estraverse = require('estraverse');
 
+var crypto = require('crypto');
+
 function getIdentifiers(source) {
 
     var identifiers = [];
@@ -40,6 +42,32 @@ function getIdentifiers(source) {
     return identifiers;
 }
 
+function replaceIdentifiers(source, replacements) {
+
+    var identifiers = getIdentifiers(source);
+
+    if (identifiers.length !== replacements.length) {
+        console.log(replacements);
+        throw new Error('First function arguments count is not the same as replacements: ' + identifiers.length + ' !== ' + replacements.length);
+    }
+
+    var ctx; //= new refactor.Context(source);
+    for (var i = 0; i < replacements.length; i++) {
+
+        var replacement = replacements[i];
+        var identifier = identifiers[i].slice(-1).pop();
+        ctx = new refactor.Context(source);
+
+        var node = ctx.identify(identifier);
+        source = ctx.rename(node, replacement);
+
+        identifiers = getIdentifiers(source);
+
+    }
+
+    return source;
+}
+
 module.exports = function (source, options) {
 
     if (!source) {
@@ -54,31 +82,24 @@ module.exports = function (source, options) {
         throw new Error('Invalid options');
     }
 
-    var identifiers = getIdentifiers(source);
+    var count = options.replacements.length;
 
-    if (identifiers.length !== options.replacements.length) {
-        throw new Error('First function arguments count is not the same as replacements: ' + identifiers.length);
+    var safe_replacements = [];
+    for (var i = 0; i < count; i++) {
+        safe_replacements.push('__prettify_' + i + '_' + crypto.randomBytes(20).toString('hex'));
     }
 
-    var ctx; //= new refactor.Context(source);
-    for (var i = 0; i < options.replacements.length; i++) {
+    // First run to safely replace identifiers
+    source = replaceIdentifiers(source, safe_replacements);
 
-        var replacement = options.replacements[i];
-        var identifier = identifiers[i].slice(-1).pop();
-        ctx = new refactor.Context(source);
-
-        var node = ctx.identify(identifier);
-        source = ctx.rename(node, replacement);
-
-        identifiers = getIdentifiers(source);
-
-    }
-
-    //replace consecutive new lines
-    source = source.replace(/\n\s*\n/g, '\n');
+    // Do the real user requested replacement
+    source = replaceIdentifiers(source, options.replacements);
 
     // kill the use strict comment
     source = source.replace(/"use strict";/, '');
+
+    //replace consecutive new lines
+    source = source.replace(/\n\s*\n/g, '\n');
 
     return source;
 
