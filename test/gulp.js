@@ -68,7 +68,7 @@ describe('gulp-snippet-prettify', function () {
         var fake = load('outfound.js');
 
         var prettifier = prettify({
-            replacements: ['O', 'u', 'T', 'F', 'o', 'U', 'N', 'D', '_']
+            replacements: ['o', 'u', 't', 'F', 'O', 'U', 'N', 'D', '__']
         });
 
         prettifier.write(fake);

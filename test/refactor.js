@@ -44,7 +44,7 @@ describe('refactor', function () {
         var output = contents('outfound.pretty.js');
 
         var pretty = prettify(source, {
-            replacements: ['O', 'u', 'T', 'F', 'o', 'U', 'N', 'D', '_']
+            replacements: ['o', 'u', 't', 'F', 'O', 'U', 'N', 'D', '__']
         });
 
         assert.equal(pretty, output);
