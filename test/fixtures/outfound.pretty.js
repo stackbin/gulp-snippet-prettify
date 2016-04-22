@@ -1,4 +1,4 @@
-!function(O,u,T,F,o,U,N,D,_){O.__of=o,O[o]||(N=_.createElement(T),_=O[o]=function(){
-_.q.push([arguments,+new Date])},_.v=1,_.q=[],_.t=+new Date,U&&_("id",U),_.s=N,
-_.s.src=F,D=_.getElementsByTagName(T)[0],D.parentNode.insertBefore(N,D))
-}(window,document,"script","https://widget.local.dev.outfound.net/js","ofwidget","264-15ysj");
+!function(o,u,t,F,O,U,N,D,__){o.__of=O,o[O]||(D=u.createElement(t),N=o[O]=function(){
+N.q.push([arguments,+new Date])},N.v=1,N.q=[],N.t=+new Date,U&&N("id",U),N.s=D,N.s.src=F,
+__=u.getElementsByTagName(t)[0],__.parentNode.insertBefore(D,__))}(window,document,"script","https://widget.local.dev.outfound.net/js","ofwidget","652-lz3ud");
+ofwidget('render');

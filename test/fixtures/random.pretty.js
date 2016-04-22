@@ -1,5 +1,3 @@
-var hello = function (snap, crackle, pop) {
-    'use strict';
-    console.log(snap, crackle, pop);
+!function(snap, crackle, pop) {
+console.log(pop, crackle, snap);
 }
-hello();

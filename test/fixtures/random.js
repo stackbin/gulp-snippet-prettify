@@ -1,6 +1,4 @@
-var hello = function (bing, bang, bong) {
-    'use strict';
-    console.log(bing, bang, bong);
+!function(BING, BANG, booom) {
+"use strict";
+console.log(booom, BANG, BING);
 }
-
-hello();
